@@ -2,7 +2,7 @@
 % !TEX root = main.tex
 \documentclass[11pt,a4paper,oneside]{ctexart}
 
-\usepackage[T1]{fontenc}
+\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{tgtermes}
 \usepackage{olymp}
@@ -16,7 +16,14 @@
 \usepackage{wrapfig} % for having text alongside pictures
 \usepackage{verbatim}
 \usepackage{array} % compatibility check
-
+\usepackage{zhlineskip}
+\SetTextEnvironmentSinglespace{1.05}
 \newcommand{\importproblem}[1]{\import{../problems/#1/}{./problem_statement.tex}}
 
+\newenvironment{english}
+{\addvspace\medskipamount} 
+{\par\addvspace\medskipamount}
+
+\RestoreTextEnvironmentLeading{tabular}
+\RestoreTextEnvironmentLeading{english}
 \input{problems.tex}
