@@ -90,13 +90,6 @@
 
 % -- End of setup margins --
 
-%---------- From package "lastpage" ------------------
-\def\lastpage@putlabel{\addtocounter{page}{-1}%
-   \immediate\write\@auxout{\string\newlabel{LastPage}{{}{\thepage}}}%
-   \addtocounter{page}{1}}
-\AtEndDocument{\clearpage\lastpage@putlabel}%
-%---------- end of "lastpage" ------------------
-
 % -- Setup sizes --
 \newlength{\exmpwidinf}
 \newlength{\exmpwidouf}
@@ -415,6 +408,7 @@
         \ifdefined\NoProblemHead\else%
         \noindent
         \refstepcounter{problem}
+        \pdfbookmark{\Alph{problem} - #1}{\theproblem}
         \textbf{\problemheadfont\textsf{%
                 \ifdefined\ShortProblemTitle\else{\kw@Problem\ \if@arabic\arabic{problem}\else\Alph{problem}\fi.\ }\fi%
                 #1%
